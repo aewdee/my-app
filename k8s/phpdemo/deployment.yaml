@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpdemo
+spec:
+  selector:
+    matchLabels:
+      app: phpdemo
+  template:
+    metadata:
+      labels:
+        app: phpdemo
+    spec:
+      containers:
+      - name: phpdemo
+        image: aewdee/phpdemo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
